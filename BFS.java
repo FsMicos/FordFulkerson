@@ -8,13 +8,13 @@ import java.util.List;
 import java.util.Queue;
 
 public class BFS {
-    public static List<Integer> recorrerAnchura(int[][] g, int source, int sink){
-       int[] parent = new int[g.length];
+    public static List<Integer> recorrerAnchura(int[][] g, int source, int sink) {
+        int[] parent = new int[g.length];
         Arrays.fill(parent, -1);
         Queue<Integer> queue = new LinkedList<>();
         queue.add(source);
         parent[source] = source;
-        while(!queue.isEmpty() && parent[sink] == -1){
+        while (!queue.isEmpty() && parent[sink] == -1) {
             int current = queue.poll();
 
             for (int next = 0; next < g.length; next++) {

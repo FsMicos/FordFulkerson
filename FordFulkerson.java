@@ -4,7 +4,7 @@ import java.util.List;
 
 public class FordFulkerson {
 
-   private static final int INF = Integer.MAX_VALUE;
+    private static final int INF = Integer.MAX_VALUE;
 
     public static int fordFulkerson(int[][] graph, int source, int sink) {
         int maxFlow = 0;
@@ -20,9 +20,9 @@ public class FordFulkerson {
             maxFlow += minCapacity;
             augmentingPath = BFS.recorrerAnchura(residualGraph, source, sink);
         }
-
         return maxFlow;
     }
+
     private static int findMinCapacity(int[][] graph, List<Integer> path) {
         int minCapacity = INF;
         for (int i = 0; i < path.size() - 1; i++) {
@@ -41,5 +41,5 @@ public class FordFulkerson {
             graph[hasta][desde] += minCapacity;
         }
     }
-    
+
 }

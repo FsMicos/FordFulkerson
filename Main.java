@@ -6,7 +6,7 @@ public class Main {
        int n = 7;
        GrafMatPeso gra = new GrafMatPeso(n);
 
-       String a="A";
+       String a = "A";
        String b = "B"; 
        String c = "C"; 
        String d = "D"; 
@@ -23,7 +23,7 @@ public class Main {
        gra.nuevoVertice(f); 
        gra.nuevoVertice(g);
 
-       //realizamos los enlaces (nodo_inicial, nodo_final,peso) 
+       //realizamos los enlaces (nodo_inicial, nodo_final, peso) 
        gra.nuevoArco(a, b, 7);
        //gra.nuevoArco(b, a, 7); 
        gra.nuevoArco(a, d, 5); 
@@ -50,9 +50,10 @@ public class Main {
         System.out.println("vertices del grafo");
         for (int w = 0; w < n; w++)  {
             System.out.println(gra.vertices()[w].nomVertice()+ " ");
-    }   
-        gra.imprimirMatrizPeso();
+        }   
         System.out.println();
-        System.out.println("flujo maximo  => " + FordFulkerson.fordFulkerson(gra.matPeso(), 0, 3));
+        gra.imprimirMatrizPeso();
+
+        System.out.println("\nFlujo máximo  => " + FordFulkerson.fordFulkerson(gra.getMatPeso(), 0, 3));
     }
 }

@@ -55,6 +55,6 @@ public class Main {
         gra.imprimirMatrizPeso();
 
         FordFulkerson fordFulkerson = new FordFulkerson();
-        System.out.println("Flujo máximo  => " + fordFulkerson.algoritmoFordFulkerson(gra.getMatPeso(), 0, 5));
+        System.out.println("Flujo máximo  => " + fordFulkerson.algoritmoFordFulkerson(gra.getMatPeso(), 0, 3));
     }
 }

@@ -15,31 +15,41 @@ public class FordFulkerson {
         }
 
         List<Integer> rutaDeAumento = bfs.recorrerAnchura(grafoResidual, inicio, fin);
+        imprimirLista(rutaDeAumento);
+
         while (rutaDeAumento != null) {
-            int minCapacity = findMinCapacity(grafoResidual, rutaDeAumento);
-            updateResidualCapacities(grafoResidual, rutaDeAumento, minCapacity);
-            flujoMaximo += minCapacity;
+            int capacidadMinima = encontrarCapacidadMinima(grafoResidual, rutaDeAumento);
+            actualizarCapacidadesResiduales(grafoResidual, rutaDeAumento, capacidadMinima);
+            flujoMaximo += capacidadMinima;
             rutaDeAumento = bfs.recorrerAnchura(grafoResidual, inicio, fin);
         }
         return flujoMaximo;
     }
 
-    private int findMinCapacity(int[][] graph, List<Integer> path) {
-        int minCapacity = INF;
-        for (int i = 0; i < path.size() - 1; i++) {
-            int desde = path.get(i);
-            int hasta = path.get(i + 1);
-            minCapacity = Math.min(minCapacity, graph[desde][hasta]);
+    private void imprimirLista(List<Integer> rutaDeAumento) {
+        System.out.println("Imprimiendo el camino:");
+        for (int elemento : rutaDeAumento) {
+            System.out.print(elemento + " ");
         }
-        return minCapacity;
+        System.out.println("\n");
     }
 
-    private void updateResidualCapacities(int[][] graph, List<Integer> path, int minCapacity) {
-        for (int i = 0; i < path.size() - 1; i++) {
-            int desde = path.get(i);
-            int hasta = path.get(i + 1);
-            graph[desde][hasta] -= minCapacity;
-            graph[hasta][desde] += minCapacity;
+    private int encontrarCapacidadMinima(int[][] grafoPesos, List<Integer> camino) {
+        int capacidadMinima = INF;
+        for (int i = 0; i < camino.size() - 1; i++) {
+            int desde = camino.get(i);
+            int hasta = camino.get(i + 1);
+            capacidadMinima = Math.min(capacidadMinima, grafoPesos[desde][hasta]);
+        }
+        return capacidadMinima;
+    }
+
+    private void actualizarCapacidadesResiduales(int[][] grafoPesos, List<Integer> camino, int capacidadMinima) {
+        for (int i = 0; i < camino.size() - 1; i++) {
+            int desde = camino.get(i);
+            int hasta = camino.get(i + 1);
+            grafoPesos[desde][hasta] -= capacidadMinima;
+            grafoPesos[hasta][desde] += capacidadMinima;
         }
     }
 

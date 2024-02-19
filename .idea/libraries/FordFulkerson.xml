@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="FordFulkerson">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$" />
+      <root url="jar://C:/Program Files/Java/javafx-sdk-21.0.2/lib/javafx-swt.jar!/" />
+      <root url="jar://C:/Program Files/Java/javafx-sdk-21.0.2/lib/javafx.base.jar!/" />
+      <root url="jar://C:/Program Files/Java/javafx-sdk-21.0.2/lib/javafx.controls.jar!/" />
+      <root url="jar://C:/Program Files/Java/javafx-sdk-21.0.2/lib/javafx.fxml.jar!/" />
+      <root url="jar://C:/Program Files/Java/javafx-sdk-21.0.2/lib/javafx.graphics.jar!/" />
+      <root url="jar://C:/Program Files/Java/javafx-sdk-21.0.2/lib/javafx.media.jar!/" />
+      <root url="jar://C:/Program Files/Java/javafx-sdk-21.0.2/lib/javafx.swing.jar!/" />
+      <root url="jar://C:/Program Files/Java/javafx-sdk-21.0.2/lib/javafx.web.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/.." />
+    </SOURCES>
+  </library>
+</component>

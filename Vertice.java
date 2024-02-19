@@ -1,11 +1,15 @@
 package FordFulkerson;
 
 public class Vertice {
-    String nombre;
-    int numVertice;
+    private String nombre;
+    private int ejeX;
+    private int ejeY;
+    private int numVertice;
 
-    public Vertice(String x) {
-        nombre = x;
+    public Vertice(String nombre, int ejeX, int ejeY) {
+        this.nombre = nombre;
+        this.ejeX = ejeX;
+        this.ejeY = ejeY;
         numVertice = -1;
     }
 
@@ -23,5 +27,13 @@ public class Vertice {
 
     public String toString() { // caracteristicas del vértice
         return nombre + " (" + numVertice + ")";
+    }
+
+    public int getEjeX() {
+        return ejeX;
+    }
+
+    public int getEjeY() {
+        return ejeY;
     }
 }

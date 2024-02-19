@@ -1,7 +1,20 @@
+
 package FordFulkerson;
 
-public class Main {
+import javafx.application.Application;
+import javafx.stage.Stage;
+
+public class Main extends Application{
+
+
     public static void main(String[] args) throws Exception {
+
+        launch(args);
+    }
+
+
+    @Override
+    public void start(Stage stage) throws Exception {
         //numero de vertices
         int n = 7;
         GrafMatPeso gra = new GrafMatPeso(n);
@@ -15,13 +28,13 @@ public class Main {
         String g = "G";
 
         //nombre de los vertices
-        gra.nuevoVertice(a);
-        gra.nuevoVertice(b);
-        gra.nuevoVertice(c);
-        gra.nuevoVertice(d);
-        gra.nuevoVertice(e);
-        gra.nuevoVertice(f);
-        gra.nuevoVertice(g);
+        gra.nuevoVertice(a, 50, 50);
+        gra.nuevoVertice(b, 150, 50);
+        gra.nuevoVertice(c, 250, 50);
+        gra.nuevoVertice(d, 50, 150);
+        gra.nuevoVertice(e, 250, 150);
+        gra.nuevoVertice(f, 200, 250);
+        gra.nuevoVertice(g, 100, 250);
 
         //realizamos los enlaces (nodo_inicial, nodo_final, peso)
         gra.nuevoArco(a, b, 7);
@@ -55,6 +68,7 @@ public class Main {
         gra.imprimirMatrizPeso();
 
         FordFulkerson fordFulkerson = new FordFulkerson();
-        System.out.println("Flujo máximo  => " + fordFulkerson.algoritmoFordFulkerson(gra.getMatPeso(), 0, 3));
+        System.out.println("Flujo máximo  => " + fordFulkerson.algoritmoFordFulkerson(gra.getMatPeso(), 0, 1));
+        gra.start(stage);
     }
 }

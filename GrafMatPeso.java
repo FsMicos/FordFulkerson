@@ -91,42 +91,39 @@ public class GrafMatPeso {
         Pane root = new Pane();
 
 
-        Circle puntoA1 = new Circle(3, Color.RED);
+        Circle puntoA1 = new Circle(3, Color.GOLD);
         puntoA1.setTranslateX(50);
         puntoA1.setTranslateY(50);
         root.getChildren().add(puntoA1);
         double velocidadX = 0;
         double velocidadY = 1;
 
-        Circle puntoA2 = new Circle(3, Color.RED);
+        Circle puntoA2 = new Circle(3, Color.DARKORANGE);
         puntoA2.setTranslateX(42);
         puntoA2.setTranslateY(50);
         root.getChildren().add(puntoA2);
 
-        Circle puntoA3 = new Circle(3, Color.RED);
-        puntoA3.setTranslateX(34);
+        Circle puntoA3 = new Circle(3, Color.DARKORANGE);
+        puntoA3.setTranslateX(58);
         puntoA3.setTranslateY(50);
         root.getChildren().add(puntoA3);
 
-        Circle puntoA4 = new Circle(3, Color.RED);
-        puntoA4.setTranslateX(58);
+        Circle puntoA4 = new Circle(3, Color.GOLD);
+        puntoA4.setTranslateX(34);
         puntoA4.setTranslateY(50);
         root.getChildren().add(puntoA4);
 
-        Circle puntoA5 = new Circle(3, Color.RED);
+        Circle puntoA5 = new Circle(3, Color.GOLD);
         puntoA5.setTranslateX(66);
         puntoA5.setTranslateY(50);
         root.getChildren().add(puntoA5);
 
-
-        Circle puntoB1 = new Circle(3, Color.DARKVIOLET);
+        Circle puntoB1 = new Circle(3, Color.ORCHID);
         puntoB1.setTranslateX(50);
         puntoB1.setTranslateY(50);
         root.getChildren().add(puntoB1);
         double velocidadBX = 1;
         double velocidadBY = 0;
-        double velocidadCX = -1;
-        double velocidadCY = 1;
 
         Circle puntoB2 = new Circle(3, Color.DARKVIOLET);
         puntoB2.setTranslateX(50);
@@ -135,38 +132,38 @@ public class GrafMatPeso {
 
         Circle puntoB3 = new Circle(3, Color.DARKVIOLET);
         puntoB3.setTranslateX(50);
-        puntoB3.setTranslateY(34);
+        puntoB3.setTranslateY(58);
         root.getChildren().add(puntoB3);
 
-        Circle puntoB4 = new Circle(3, Color.DARKVIOLET);
+        Circle puntoB4 = new Circle(3, Color.ORCHID);
         puntoB4.setTranslateX(50);
-        puntoB4.setTranslateY(58);
+        puntoB4.setTranslateY(34);
         root.getChildren().add(puntoB4);
 
-        Circle puntoB5 = new Circle(3, Color.DARKVIOLET);
+        Circle puntoB5 = new Circle(3, Color.ORCHID);
         puntoB5.setTranslateX(50);
         puntoB5.setTranslateY(66);
         root.getChildren().add(puntoB5);
 
         Circle puntoB6 = new Circle(3, Color.DARKVIOLET);
         puntoB6.setTranslateX(50);
-        puntoB6.setTranslateY(26);
+        puntoB6.setTranslateY(74);
         root.getChildren().add(puntoB6);
 
         Circle puntoB7 = new Circle(3, Color.DARKVIOLET);
         puntoB7.setTranslateX(50);
-        puntoB7.setTranslateY(74);
+        puntoB7.setTranslateY(26);
         root.getChildren().add(puntoB7);
 
 
         // Agrega círculos para representar los vértices
-        drawCircle(root, verts[0]);
-        drawCircle(root, verts[1]);
-        drawCircle(root, verts[2]);
-        drawCircle(root, verts[3]);
-        drawCircle(root, verts[4]);
-        drawCircle(root, verts[5]);
-        drawCircle(root, verts[6]);
+        drawCircle(root, verts[0], Color.GREENYELLOW);
+        drawCircle(root, verts[1], Color.LIGHTBLUE);
+        drawCircle(root, verts[2], Color.ORANGERED);
+        drawCircle(root, verts[3], Color.LIGHTBLUE);
+        drawCircle(root, verts[4], Color.LIGHTBLUE);
+        drawCircle(root, verts[5], Color.LIGHTBLUE);
+        drawCircle(root, verts[6], Color.LIGHTBLUE);
 
         // Conecta los vértices con líneas y cabezas de flecha
         drawArrow(root, verts[0], verts[1], 7);
@@ -182,25 +179,21 @@ public class GrafMatPeso {
         drawArrow(root, verts[6], verts[5], 11);
 
 
-        animarPunto(puntoA2, velocidadX, velocidadY, -8, 0);
-        animarPunto(puntoA3, velocidadX, velocidadY, 8, 0);
-        animarPunto(puntoA4, velocidadX, velocidadY, -16, 0);
-        animarPunto(puntoA5, velocidadX, velocidadY, 16, 0);
-        animarPunto(puntoA1, velocidadX, velocidadY, 0, 0);
+        animarPunto(puntoA2, new double[]{velocidadX, velocidadY}, -8, 0);
+        animarPunto(puntoA3, new double[]{velocidadX, velocidadY}, 8, 0);
+        animarPunto(puntoA4, new double[]{velocidadX, velocidadY}, -16, 0);
+        animarPunto(puntoA5, new double[]{velocidadX, velocidadY}, 16, 0);
+        animarPunto(puntoA1, new double[]{velocidadX, velocidadY}, 0, 0);
 
-        animarPunto(puntoB2, velocidadBX, velocidadBY, 0, -8);
-        animarPunto(puntoB3, velocidadBX, velocidadBY, 0, 8);
-        animarPunto(puntoB4, velocidadBX, velocidadBY, 0, -16);
-        animarPunto(puntoB5, velocidadBX, velocidadBY, 0, 16);
-        animarPunto(puntoB1, velocidadBX, velocidadBY, 0, 0);
-        animarPunto(puntoB6, velocidadBX, velocidadBY, 0, 24);
-        animarPunto(puntoB7, velocidadBX, velocidadBY, 0, -24);
 
-       //animarPunto(puntoB2, velocidadCX, velocidadCY, 0, -158);
-       //animarPunto(puntoB3, velocidadCX, velocidadCY, 0, 158);
-       //animarPunto(puntoB4, velocidadCX, velocidadCY, 0, -166);
-       //animarPunto(puntoB5, velocidadCX, velocidadCY, 0, 166);
-       //animarPunto(puntoB1, velocidadCX, velocidadCY, 150, 150);
+        animarPunto(puntoB7, new double[]{velocidadBX, velocidadBY}, 0, -24);
+        animarPunto(puntoB4, new double[]{velocidadBX, velocidadBY}, 0, -16);
+        animarPunto(puntoB2, new double[]{velocidadBX, velocidadBY}, 0, -8);
+        animarPunto(puntoB1, new double[]{velocidadBX, velocidadBY}, 0, 0);
+        animarPunto(puntoB3, new double[]{velocidadBX, velocidadBY}, 0, 8);
+        animarPunto(puntoB5, new double[]{velocidadBX, velocidadBY}, 0, 16);
+        animarPunto(puntoB6, new double[]{velocidadBX, velocidadBY}, 0, 24);
+
 
 
         Scene scene = new Scene(root, 300, 300);
@@ -208,30 +201,49 @@ public class GrafMatPeso {
         primaryStage.show();
     }
 
-    private void animarPunto(Circle punto, double velocidadX, double velocidadY, int i, int j) {
-        double posicionX = punto.getTranslateX();
-        double posicionY = punto.getTranslateX();
+    private void animarPunto(Circle punto, double[] velocidades, double i, double j) {
+        final boolean[] bandera = {false};
+
         // Crea una animación para mover el punto
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(10), event -> {
             // Actualiza la posición del punto en cada frame
 
-            if (punto.getTranslateY() == 150 || punto.getTranslateX() == 150) {
+            if (punto.getTranslateX() == (verts[1].getEjeX() + i) && punto.getTranslateY() == (verts[1].getEjeY() + j) && bandera[0] != true) {
+                velocidades[0] = 1;
+                velocidades[1] = 0;
+            } else if (punto.getTranslateX() == (verts[2].getEjeX() + i) && punto.getTranslateY() == (verts[2].getEjeY() + j) && bandera[0] != true) {
                 punto.setTranslateX(50 + (i));
                 punto.setTranslateY(50 + (j));
-
+                velocidades[0] = 1;
+                velocidades[1] = 0;
+            }else if (punto.getTranslateX() == (verts[3].getEjeX() + i) && punto.getTranslateY() == (verts[3].getEjeY() + j)) {
+                velocidades[0] = 1.5;
+                velocidades[1] = 1;
+            }else if (punto.getTranslateX() == (verts[5].getEjeX() + i) && punto.getTranslateY() == (verts[5].getEjeY() + j)) {
+                velocidades[0] = 1;
+                velocidades[1] = -2;
+            }else if (punto.getTranslateX() == (verts[4].getEjeX() + i) && punto.getTranslateY() == (verts[4].getEjeY() + j)) {
+                velocidades[0] = 0;
+                velocidades[1] = -1;
+                bandera[0] = true;
+            }else if (punto.getTranslateX() == (verts[2].getEjeX() + i) && punto.getTranslateY() == (verts[2].getEjeY() + j)) {
+                punto.setTranslateX(50 + (i));
+                punto.setTranslateY(50 + (j));
+                velocidades[0] = 0;
+                velocidades[1] = 1;
             }
-            punto.setTranslateX(punto.getTranslateX() + velocidadX);
-            punto.setTranslateY(punto.getTranslateY() + velocidadY);
+            punto.setTranslateX(punto.getTranslateX() + velocidades[0]);
+            punto.setTranslateY(punto.getTranslateY() + velocidades[1]);
 
-        }));
+        }, new javafx.animation.KeyValue[]{}));
 
         timeline.setCycleCount(timeline.INDEFINITE);
         timeline.play();
     }
 
-    private void drawCircle(Pane group, Vertice vertice) {
+    private void drawCircle(Pane group, Vertice vertice, Color color) {
         Circle circle = new Circle(vertice.getEjeX(), vertice.getEjeY(), CIRCLE_RADIUS);
-        circle.setFill(Color.LIGHTBLUE);
+        circle.setFill(color);
 
         group.getChildren().add(circle);
 
@@ -253,7 +265,7 @@ public class GrafMatPeso {
         double y2 = end.getEjeY() - arrowHeadSize * Math.sin(angle + Math.toRadians(30));
 
         Polygon arrowHead = new Polygon(end.getEjeX(), end.getEjeY(), x1, y1, x2, y2);
-        arrowHead.setFill(Color.CORAL);
+        arrowHead.setFill(Color.NAVY);
         group.getChildren().add(arrowHead);
 
         // Agrega una etiqueta de texto para el peso de la arista

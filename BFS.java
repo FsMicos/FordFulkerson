@@ -9,31 +9,34 @@ import java.util.Queue;
 
 public class BFS {
     public List<Integer> recorrerAnchura(int[][] grafoPesos, int inicio, int fin) {
-        int[] parent = new int[grafoPesos.length];
-        Arrays.fill(parent, -1);
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(inicio);
-        parent[inicio] = inicio;
-        while (!queue.isEmpty() && parent[fin] == -1) {
-            int current = queue.poll();
+        int[] padres = new int[grafoPesos.length];
+        Arrays.fill(padres, -1);
+        Queue<Integer> cola = new LinkedList<>();
+        cola.add(inicio);
+        padres[inicio] = inicio;
+        while (!cola.isEmpty() && padres[fin] == -1) {
+            int nodoActual = cola.poll();
 
-            for (int next = 0; next < grafoPesos.length; next++) {
-                if (parent[next] == -1 && grafoPesos[current][next] > 0) {
-                    parent[next] = current;
-                    queue.add(next);
+            for (int nodoSiguiente = 0; nodoSiguiente < grafoPesos.length; nodoSiguiente++) {
+                if (padres[nodoSiguiente] == -1 && grafoPesos[nodoActual][nodoSiguiente] > 0) {
+                    padres[nodoSiguiente] = nodoActual;
+                    cola.add(nodoSiguiente);
                 }
             }
         }
-        if (parent[fin] == -1) {
+        if (padres[fin] == -1) {
             return null; // No hay camino aumentante
         }
 
-        List<Integer> path = new ArrayList<>();
-        for (int v = fin; v != inicio; v = parent[v]) {
-            path.add(v);
+
+
+        List<Integer> camino = new ArrayList<>();
+
+        for (int v = fin; v != inicio; v = padres[v]) {
+            camino.add(v);
         }
-        path.add(inicio);
-        Collections.reverse(path);
-        return path;
+        camino.add(inicio);
+        Collections.reverse(camino);
+        return camino;
     }
 }
